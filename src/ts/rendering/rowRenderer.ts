@@ -171,6 +171,10 @@ module ag.grid {
         }
 
         public refreshView(refreshFromIndex?: any) {
+            if (this.gridOptionsWrapper.isSuppressViewRefresh()) {
+                return;
+            }
+
             if (!this.gridOptionsWrapper.isForPrint()) {
                 var rowCount = this.rowModel.getVirtualRowCount();
                 var containerHeight = this.gridOptionsWrapper.getRowHeight() * rowCount;

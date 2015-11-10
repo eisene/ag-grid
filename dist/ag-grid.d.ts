@@ -214,10 +214,11 @@ declare module ag.grid {
         getIsScrollLag(): () => boolean;
         getSortingOrder(): string[];
         getSlaveGrids(): GridOptions[];
-        getGroupRowRenderer(): Object | Function;
+        getGroupRowRenderer(): Function | Object;
         getRowHeight(): number;
         getOverlayLoadingTemplate(): string;
         getOverlayNoRowsTemplate(): string;
+        isSuppressViewRefresh(): boolean;
         getHeaderHeight(): number;
         setHeaderHeight(headerHeight: number): void;
         isGroupHeaders(): boolean;
@@ -226,6 +227,7 @@ declare module ag.grid {
         setFloatingTopRowData(rows: any[]): void;
         getFloatingBottomRowData(): any[];
         setFloatingBottomRowData(rows: any[]): void;
+        setSuppressViewRefresh(suppress: boolean): void;
         isExternalFilterPresent(): boolean;
         doesExternalFilterPass(node: RowNode): boolean;
         getGroupRowInnerRenderer(): (params: any) => void;
@@ -1665,6 +1667,7 @@ declare module ag.grid {
         angularCompileHeaders?: boolean;
         suppressLoadingOverlay?: boolean;
         suppressNoRowsOverlay?: boolean;
+        suppressViewRefresh?: boolean;
         localeText?: any;
         localeTextFunc?: Function;
         suppressScrollLag?: boolean;
@@ -1820,6 +1823,8 @@ declare module ag.grid {
         hideColumns(colIds: any, hide: any): void;
         getColumnState(): [any];
         setColumnState(state: any): void;
+        suppressViewRefresh(): void;
+        unSuppressViewRefresh(): void;
         doLayout(): void;
         getValue(colDef: ColDef, data: any, node: any): any;
         addEventListener(eventType: string, listener: Function): void;

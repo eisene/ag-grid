@@ -355,6 +355,15 @@ module ag.grid {
             this.columnController.setState(state);
         }
 
+        public suppressViewRefresh() {
+            this.gridOptionsWrapper.setSuppressViewRefresh(true);
+        }
+
+        public unSuppressViewRefresh() {
+            this.gridOptionsWrapper.setSuppressViewRefresh(false);
+            this.refreshView();
+        }
+
         public doLayout() {
             this.grid.doLayout();
         }

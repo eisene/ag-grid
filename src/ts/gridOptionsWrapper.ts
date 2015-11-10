@@ -99,6 +99,7 @@ module ag.grid {
         public getRowHeight() { return this.rowHeight; }
         public getOverlayLoadingTemplate() { return this.gridOptions.overlayLoadingTemplate; }
         public getOverlayNoRowsTemplate() { return this.gridOptions.overlayNoRowsTemplate; }
+        public isSuppressViewRefresh() { return isTrue(this.gridOptions.suppressViewRefresh); }
 
         // properties
         public getHeaderHeight(): number {
@@ -122,6 +123,7 @@ module ag.grid {
         public setFloatingTopRowData(rows: any[]): void { this.floatingTopRowData = rows; }
         public getFloatingBottomRowData(): any[] { return this.floatingBottomRowData; }
         public setFloatingBottomRowData(rows: any[]): void { this.floatingBottomRowData = rows; }
+        public setSuppressViewRefresh(suppress: boolean): void { this.gridOptions.suppressViewRefresh = suppress; }
 
         public isExternalFilterPresent() {
             if (typeof this.gridOptions.isExternalFilterPresent === 'function') {
